@@ -33,7 +33,7 @@ The game runs for 5 rounds, and the winner is decided based on the scores.
 ---
 
 ## 🌐 Live Demo
-[Click here to play the game](https://Raiyansiddique786.github.io/dice-roll-game/)  
+[Click here to play the game](https://Raiyansiddique786.github.io/Dice-Roll-Game/)  
  
 
 ---
