@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice-Roll Game</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f7f7f7;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        pre {
+            text-align: left;
+            background: #222;
+            color: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 0 auto;
+            white-space: pre-wrap; /* Wraps long lines */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎲 Dice Roll Game</h1>
+    <button onclick="startGame()">Start Game</button>
+    <pre id="output"></pre>
+    <!-- Javascript -->
+    <!-- <script src="app.js"> -->
+    <script>
+        function startGame() {
+            let playerScore = 0;
+            let computerScore = 0;
+
+            // taking 2 variables to store the result
+            let playerHistory = [];
+            let computerHistory = [];
+            let output = "";
+            // let round =5;
+            let i = 1;
+            while (i <= 5) {
+                let input = prompt(`Round ${i}: Press Enter to roll the dice (or type 'quit' to exit the game)`);
+                if (input === "quit") {
+                    output += "You quit the game!\n";
+                    // console.log("You quit the game!");
+                    break;
+                }
+                // player and computer dice rolls
+                let playerRoll = Math.floor(Math.random() * 6) + 1;
+                let computerRoll = Math.floor(Math.random() * 6) + 1;
+
+                // store rolls in History arrays
+                playerHistory.push(playerRoll);
+                computerHistory.push(computerRoll);
+
+                output += `Round ${i}: Player rolled ${playerRoll}, Computer rolled ${computerRoll}\n`;
+
+                // compare Rolls
+                if (playerRoll > computerRoll) {
+                    playerScore += 1;
+                    output += ("Player wins this round!\n\n");
+                } else if (computerRoll > playerRoll) {
+                    computerScore += 1;
+                    output += ("Computer wins this round!\n\n");
+                } else {
+                    output += ("This round is a draw!\n\n");
+                }
+                i++;
+            }
+
+            // Show final score
+            output += `\n📊 Final Scores:\nPlayer: ${playerScore} | Computer: ${computerScore}\n\n`;
+            // Show history
+            output += ("\nDice Roll History:");
+            output += ` Player History: ${playerHistory.join(", ")}\n`;
+            output += ` Computer History: ${computerHistory.join(", ")}\n\n`;
+
+            // Declare Winner
+            if (playerScore > computerScore) {
+                output += ("Player wins this game!")
+            } else if (computerScore > playerScore) {
+                output += ("Computer wins this game!")
+            } else {
+                output += ("The game is draw!");
+            }
+
+            // show results in <pre>
+            document.getElementById("output").textContent = output;
+        }
+    </script>
+</body>
+
+</html>
