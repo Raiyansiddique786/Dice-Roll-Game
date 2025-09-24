@@ -36,11 +36,3 @@ The game runs for 5 rounds, and the winner is decided based on the scores.
 [Click here to play the Dice Roll Game](https://Raiyansiddique786.github.io/Dice-Roll-Game/)
 
  
-
----
-
-## 📸 Preview
-(Add a screenshot here once you deploy and take a screenshot of the game UI)
-
----
-
